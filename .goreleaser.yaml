@@ -1,0 +1,15 @@
+before:
+    hooks:
+        - go mod tidy
+builds:
+    - main: ./cmd/pingg
+      id: pingg
+      binary: pingg
+      env:
+          - CGO_ENABLED=0
+      goos:
+          - linux
+          - windows
+          - darwin
+        
+            
