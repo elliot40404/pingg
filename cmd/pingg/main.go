@@ -77,6 +77,7 @@ func (p *Ping) renderGraph(inpChan <-chan float64, cancel context.CancelFunc) {
 	p0.DataLabels = []string{"Latency", "ms"}
 	p0.PaddingLeft = 5
 	p0.Border = false
+	p0.LineColors[0] = ui.ColorGreen
 
 	ui.Render(p0, p1)
 	uiEvents := ui.PollEvents()
@@ -112,9 +113,6 @@ func parseLatency(timeStr string) (float64, error) {
 	return timeValue, nil
 }
 
-/*
-display the ping statistics and the latency graph
-*/
 func main() {
 	if len(os.Args) < 2 {
 		log.Fatal("Usage: ", os.Args[0], " <target>")
